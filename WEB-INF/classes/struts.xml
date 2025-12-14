@@ -4,12 +4,33 @@
 
 <struts>
     <package name="default" extends="struts-default">
-
-	
 		
-    <action name ="Register " class= "RegisterClass" method = "Registration">   
-         <result name ="User Registered">/login.jsp</result>
-         <result name ="Registration Failed">/RegFailed.jsp</result>
-    </action>     
+		
+		<action name="register" class="RegisterClass" method="registration">   
+			<result name="User Registered">/login.jsp</result>
+			<result name="Registration Failed">/RegFailed.html</result>
+		</action>     
+		
+	
+        <action name="login" class="LoginClass" method="Login">
+            <result name="Success" type="redirect">/viewProfile.action</result>
+            <result name="Failure">/login.jsp</result>
+        </action>		
+
+		<action name="logoff" class="Logout" method="logoff">
+			<result name="success">/login.jsp</result>
+		</action>
+		
+		<action name="viewProfile" class="ProfileClass" method="viewProfile">
+			<result name="success">/profile.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		
+		
+		<action name="viewAllUsers" class="ViewUsers" method="viewusers">
+			<result name="success">/users.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		
     </package>
 </struts>

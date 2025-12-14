@@ -16,10 +16,6 @@
              <s:textfield name="username" label = "Enter Username"/>
 			 <s:textfield name="password" label ="Enter Password"/>
              <s:submit></s:submit>
-        </s>
-	
-
-        
         </s:form>
 		
     </body>

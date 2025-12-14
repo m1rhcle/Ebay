@@ -13,11 +13,11 @@ public class RegisterClass {
 	}
 	
 	public String registration() {
-		int userid = 0;
+		
 
 		Connection connection = null;
 		if(username != null && password != null && email != null){
-			if(username.length() < 20 && password.contains("!") && email.contains("@")){
+			if(username.length() < 20 && email.contains("@") == true){
 
 
 				try {
@@ -49,54 +49,30 @@ public class RegisterClass {
  			
 			rs.close();
  			userentry.close();
- 			//GET USERID
  			
- 			PreparedStatement useridps= connection.prepareStatement("SELECT userid FROM users WHERE username = ?");
- 	        useridps.setString(1,username);
- 	        
- 	        ResultSet useridrs = useridps.executeQuery();
- 	        
- 	        
- 	        while(useridrs.next()) {
- 	        	
- 	        	userid = useridrs.getInt("userid");
- 	        }
- 	        
- 	        useridrs.close();
- 	        useridps.close();
- 			
- 	        // Create user balance
- 			PreparedStatement userbalance = connection.prepareStatement("Insert into userbalance(userid) Values(?)" );
- 			
- 			userbalance.setInt(1, userid);
- 			userbalance.executeUpdate();
- 			
- 			userbalance.close();
- 		
  			
  		} catch (SQLException e1) {
  			e1.printStackTrace();
+			return "Registration Failed";
  		}
 
+		} 
 
 		return "User Registered";
 
 
-			
-		}
-	}
-	
-	return "Registration Failed";
-			
 
+	} else {
+		return "Registration Failed";
+	}
 
 	}
 
-	public String getUserName() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUserName(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
