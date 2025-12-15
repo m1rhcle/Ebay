@@ -27,10 +27,46 @@
 		</action>
 		
 		
-		<action name="viewAllUsers" class="ViewUsers" method="viewusers">
-			<result name="success">/users.jsp</result>
-			<result name="error">/login.jsp</result>
-		</action>
-		
+        <action name="viewAllUsers" class="ViewUsers" method="viewusers">
+            <result name="success">/users.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
+        
+
+        
+        <action name="addItem" class="AddItem" method="addItem">
+            <result name="Success" type="redirect">/viewItems.action</result>
+            <result name="Failure">/addItem.jsp</result>
+        </action>
+        
+
+
+        <action name="viewItems" class="ViewItems" method="viewItems">
+            <result name="Success">/items.jsp</result>
+            <result name="Failure">/login.jsp</result>
+        </action>
+
+
+        
+        <action name="viewItemDetails" class="ItemBids" method="itemDetails">
+            <result name="Success">/itemDetails.jsp</result>
+            <result name="Failure">/login.jsp</result>
+        </action>
+        
+        
+        <action name="placeBid" class="PlaceBid" method="placeBid">
+            <result name="Success" type="redirect">/viewItems.action</result>
+            <result name="Failure" type="redirect">/viewItems.action</result>
+        </action>
+
+
+        
+        <action name="viewMyBids" class="MyBids" method="mybids">
+            <result name="Success">/myBids.jsp</result>
+            <result name="Failure">/login.jsp</result>
+        </action>
+	
+
+
     </package>
 </struts>
